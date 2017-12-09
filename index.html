@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+        <title>Probe</title>
+		<style>
+			body{
+				background: #8b9dc3;
+				}
+			div#main{
+				background: dfe3ee;
+				width: 80%;
+				height: 82%;
+				padding: 10%;
+				-webkit-border-radius: 8px;
+				}
+		</style>
+    </head>
+    <body>
+		
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript">
+			function alertCompliment(){
+				var elementId = this.id;
+				var greeting;
+				if(elementId == "likeMe")
+					{greeting = "you are";}
+				else if(elementId == "likeHer")
+					{greeting = "she is";}	
+				navigator.notification.alert("We really do think that " + greeting + " the best.", function(){}, greeting + " the best");
+			}
+			DOMContentLoaded:
+			document.addEventListener("deviceready", function()
+			{
+			    document.getElementById("likeMe").
+					addEventListener("click", alertCompliment, false);
+				document.getElementById("likeHer").
+					addEventListener("click", alertCompliment, false);
+			}, false);
+		</script>
+		<div id="main">
+		You are really great!<br>
+		<button id="likeMe" onclick="alertCompliment(); return false">Tell me I'm great</button><br>
+		<button id="likeHer" onclick="alertCompliment(); return false">Tell her she is great</button><br>
+		</div>
+    </body>
+</html>
